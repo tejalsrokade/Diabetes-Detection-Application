@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Diabetes Detection</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>Diabetes Prediction Form</h2>
+    <form action="/predict" method="post">
+      <label for="preg">Total Pregnancies:</label>
+      <input type="number" name="Pregnancies" id="preg" placeholder="e.g., 2" required>
+
+      <label for="glu">Glucose Level:</label>
+      <input type="number" name="Glucose" id="glu" placeholder="e.g., 120" required>
+
+      <label for="bp">Blood Pressure:</label>
+      <input type="number" name="BloodPressure" id="bp" placeholder="e.g., 70" required>
+
+      <label for="skin">Skin Thickness:</label>
+      <input type="number" name="SkinThickness" id="skin" placeholder="e.g., 20" required>
+
+      <label for="insulin">Insulin:</label>
+      <input type="number" name="Insulin" id="insulin" placeholder="e.g., 79" required>
+
+      <label for="bmi">BMI:</label>
+      <input type="number" step="0.1" name="BMI" id="bmi" placeholder="e.g., 28.1" required>
+
+      <label for="dpf">Diabetes Pedigree Function:</label>
+      <input type="number" step="0.01" name="DiabetesPedigreeFunction" id="dpf" placeholder="e.g., 0.5" required>
+
+      <label for="age">Age:</label>
+      <input type="number" name="Age" id="age" placeholder="e.g., 33" required>
+
+      <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+      <h3>{{ prediction_text }}</h3>
+    {% endif %}
+  </div>
+</body>
+</html>
